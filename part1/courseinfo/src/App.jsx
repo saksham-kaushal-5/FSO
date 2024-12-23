@@ -3,7 +3,7 @@ import './App.css';
 
 const Header = ({ course }) => (
   <div>
-    <h1>{course}</h1>
+    <h1>{course.name}</h1>
   </div>
 );
 
@@ -25,20 +25,24 @@ const Total = ({ exercises }) => {
 };
 
 const App = () => {
-  const course = 'Half Stack application development';
-  const parts = [
+  const course = {
+    name : 'Half Stack application development', 
+
+    parts : [
     { part: 'Fundamentals of React', exercise: 10 },
     { part: 'Using props to pass data', exercise: 7 },
-    { part: 'State of a component', exercise: 14 },
-  ];
+    { part: 'State of a component', exercise: 14 }
+    ]
+  
+  }
 
   // Directly pass the content's exercise values to Total
-  const exercises = parts.map(item => item.exercise);
+  const exercises = course.parts.map(item => item.exercise);
 
   return (
     <div>
       <Header course={course} />
-      <Content parts={parts} />
+      <Content parts={course.parts} />
       <Total exercises={exercises} />
     </div>
   );
