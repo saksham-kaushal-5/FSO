@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
 import './App.css'
 
@@ -13,16 +14,21 @@ function Header(props){
   )
 }
 
+function Part({part, exercise}){
+  
+  return(
+    <p>{part} {exercise}</p>
+  )
+}
+
 function Content({content}){
   console.log(content)
 
   return(
     <>
     <div>
-      {content.map((ele, index) => (
-        <p key = {index}>
-          {ele.part} {ele.exercise}
-        </p>
+      {content.map((ele) => (
+        <Part part = {ele.part} exercise = {ele.exercise} />
       ))}
     </div>
     </>
